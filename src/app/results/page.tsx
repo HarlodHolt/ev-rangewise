@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 export default function ResultsPageWrapper() {
   return (
     <Suspense fallback={
-      <div className="flex items-center justify-center min-h-full px-5">
+      <div className="flex items-center justify-center min-h-full px-5 py-32">
         <p className="text-ink-secondary">Loading results...</p>
       </div>
     }>
@@ -42,7 +42,7 @@ function ResultsContent() {
 
   if (results.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-full px-5">
+      <div className="flex flex-col items-center justify-center min-h-full px-5 py-32">
         <p className="text-ink-secondary">No results — take the quiz first.</p>
         <Button
           onClick={() => (window.location.href = "/quiz")}
@@ -55,35 +55,39 @@ function ResultsContent() {
   }
 
   return (
-    <div className="flex flex-col min-h-full px-5 pt-2 pb-8">
+    <div className="flex flex-col min-h-full px-5 md:px-10 pt-2 pb-8">
       <TopBar />
       <Drawer />
 
-      <h2 className="text-[26px] font-bold mt-6">Your shortlist 🎉</h2>
+      <div className="max-w-5xl mx-auto w-full">
+        <h2 className="text-[26px] md:text-[32px] font-bold mt-6">Your shortlist 🎉</h2>
 
-      <div className="mt-4 p-4 bg-surface-subtle border border-border rounded-[16px] flex flex-wrap items-center gap-2 text-sm">
-        <span className="text-ink-secondary">Based on:</span>
-        <span className="tag tag-green">{km} km/day</span>
-        <span className="tag tag-blue">{budgetLabels[budget || ""]}</span>
-        {charge.includes("home") && <span className="tag tag-yellow">Home charging</span>}
-        <a href="/quiz?step=1" className="ml-auto text-xs text-ink-secondary underline">
-          Change →
-        </a>
-      </div>
+        {/* Filter summary */}
+        <div className="mt-4 p-4 bg-surface-subtle border border-border rounded-[16px] flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-ink-secondary">Based on:</span>
+          <span className="tag tag-green">{km} km/day</span>
+          <span className="tag tag-blue">{budgetLabels[budget || ""]}</span>
+          {charge.includes("home") && <span className="tag tag-yellow">Home charging</span>}
+          <a href="/quiz?step=1" className="ml-auto text-xs text-ink-secondary underline">
+            Change →
+          </a>
+        </div>
 
-      <div className="mt-6 space-y-4">
-        {results.slice(0, 3).map((ev, i) => (
-          <ResultCard key={ev.id} ev={ev} rank={i + 1} />
-        ))}
-      </div>
+        {/* Results — side by side on desktop */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+          {results.slice(0, 3).map((ev, i) => (
+            <ResultCard key={ev.id} ev={ev} rank={i + 1} />
+          ))}
+        </div>
 
-      <div className="mt-6 text-center">
-        <button
-          onClick={() => (window.location.href = "/compare")}
-          className="text-sm text-ink-secondary underline hover:text-ink"
-        >
-          ↔ Compare top 2 side by side
-        </button>
+        <div className="mt-6 text-center">
+          <button
+            onClick={() => (window.location.href = "/compare")}
+            className="text-sm text-ink-secondary underline hover:text-ink"
+          >
+            ↔ Compare top 2 side by side
+          </button>
+        </div>
       </div>
     </div>
   );

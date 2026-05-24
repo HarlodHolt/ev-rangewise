@@ -114,6 +114,49 @@ body {
   color: var(--color-ink-secondary);
 }
 
+/* Desktop container */
+.app-container {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .app-container {
+    max-width: 1200px;
+    padding: 0 32px;
+    border-left: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    box-shadow: 0 0 40px rgba(0,0,0,0.03);
+  }
+}
+
+/* Desktop hero */
+@media (min-width: 768px) {
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 40px 0;
+  }
+
+  .hero-grid .teaser-stack {
+    height: 300px;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 16px;
+  }
+
+  .trust-strip {
+    gap: 48px !important;
+  }
+}
+
 /* Screen transitions */
 .screen-enter {
   animation: slideInRight 0.35s cubic-bezier(0.4, 0, 0.2, 1);

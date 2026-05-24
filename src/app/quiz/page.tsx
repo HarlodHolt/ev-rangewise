@@ -1,20 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
-
-export default function QuizPageWrapper() {
-  return (
-    <Suspense fallback={
-      <div className="flex items-center justify-center min-h-full px-5">
-        <p className="text-ink-secondary">Loading...</p>
-      </div>
-    }>
-      <QuizContent />
-    </Suspense>
-  );
-}
-
-import { useState, useCallback } from "react";
+import { Suspense, useState, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -22,6 +8,18 @@ import { Progress } from "@/components/ui/progress";
 import TopBar from "@/components/TopBar";
 import Drawer from "@/components/Drawer";
 import OptionCard from "@/components/OptionCard";
+
+export default function QuizPageWrapper() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-full px-5 py-32">
+        <p className="text-ink-secondary">Loading...</p>
+      </div>
+    }>
+      <QuizContent />
+    </Suspense>
+  );
+}
 
 const quickPicks = [20, 40, 60, 100, 150] as const;
 
@@ -122,11 +120,12 @@ function QuizContent() {
   };
 
   return (
-    <div className="flex flex-col min-h-full px-5 pt-2">
+    <div className="flex flex-col min-h-full px-5 md:px-10 pt-2">
       <TopBar />
       <Drawer />
 
-      <div className="flex items-center gap-3 mt-2">
+      {/* Progress */}
+      <div className="flex items-center gap-3 mt-2 max-w-2xl mx-auto w-full">
         <button
           onClick={() => (step > 1 ? goToStep((step - 1) as 1 | 2 | 3) : router.push("/"))}
           className="text-sm text-ink-secondary hover:text-ink"
@@ -137,59 +136,69 @@ function QuizContent() {
         <span className="micro-label text-ink-tertiary">{step}/3</span>
       </div>
 
-      <div className="mt-6 flex-1">
+      <div className="mt-8 flex-1 max-w-2xl mx-auto w-full">
         <span className="tag tag-green text-xs">Question {step} of 3</span>
 
         {step === 1 && (
-          <div className="mt-4">
-            <h2 className="text-[26px] font-bold leading-tight">How far do you drive each day?</h2>
-            <p className="text-sm text-ink-secondary mt-1">
-              Think about your most common days — not your big weekend road trips.
-            </p>
-            <div className="mt-8 text-center">
-              <p className="text-[72px] font-mono font-bold leading-none tracking-tight">{sliderValue[0]}</p>
-              <p className="text-sm text-ink-secondary mt-1">km / day</p>
-              <span className={`tag mt-2 ${getKmTag(sliderValue[0]).cls}`}>
-                {getKmTag(sliderValue[0]).text}
-              </span>
-            </div>
-            <div className="mt-8 px-2">
-              <Slider
-                value={sliderValue}
-                onValueChange={handleKmChange}
-                min={5}
-                max={200}
-                step={5}
-                className="[&_[role=slider]]:bg-white [&_[role=slider]]:border-2 [&_[role=slider]]:border-ink [&_[role=slider]]:shadow-md [&_[role=slider]]:w-6 [&_[role=slider]]:h-6"
-              />
-              <div className="flex justify-between mt-2 text-xs text-ink-tertiary font-mono">
-                <span>5 km</span>
-                <span>200 km</span>
+          <div className="mt-4 md:mt-8 md:flex md:gap-12 md:items-center">
+            <div className="md:flex-1">
+              <h2 className="text-[26px] md:text-[32px] font-bold leading-tight">
+                How far do you drive each day?
+              </h2>
+              <p className="text-sm text-ink-secondary mt-1">
+                Think about your most common days — not your big weekend road trips.
+              </p>
+
+              <div className="mt-6 flex gap-2 flex-wrap">
+                {quickPicks.map((qkm) => (
+                  <button
+                    key={qkm}
+                    onClick={() => handleKmChange([qkm] as readonly number[])}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      sliderValue[0] === qkm
+                        ? "bg-ink text-white"
+                        : "bg-surface-subtle text-ink-secondary hover:bg-border"
+                    }`}
+                  >
+                    {qkm} km
+                  </button>
+                ))}
               </div>
             </div>
-            <div className="mt-6 flex gap-2 flex-wrap justify-center">
-              {quickPicks.map((qkm) => (
-                <button
-                  key={qkm}
-                  onClick={() => handleKmChange([qkm] as readonly number[])}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    sliderValue[0] === qkm
-                      ? "bg-ink text-white"
-                      : "bg-surface-subtle text-ink-secondary hover:bg-border"
-                  }`}
-                >
-                  {qkm} km
-                </button>
-              ))}
+
+            <div className="md:flex-1 mt-8 md:mt-0">
+              <div className="text-center">
+                <p className="text-[72px] md:text-[96px] font-mono font-bold leading-none tracking-tight">
+                  {sliderValue[0]}
+                </p>
+                <p className="text-sm text-ink-secondary mt-1">km / day</p>
+                <span className={`tag mt-2 inline-block ${getKmTag(sliderValue[0]).cls}`}>
+                  {getKmTag(sliderValue[0]).text}
+                </span>
+              </div>
+              <div className="mt-8 px-2">
+                <Slider
+                  value={sliderValue}
+                  onValueChange={handleKmChange}
+                  min={5}
+                  max={200}
+                  step={5}
+                  className="[&_[role=slider]]:bg-white [&_[role=slider]]:border-2 [&_[role=slider]]:border-ink [&_[role=slider]]:shadow-md [&_[role=slider]]:w-6 [&_[role=slider]]:h-6"
+                />
+                <div className="flex justify-between mt-2 text-xs text-ink-tertiary font-mono">
+                  <span>5 km</span>
+                  <span>200 km</span>
+                </div>
+              </div>
             </div>
           </div>
         )}
 
         {step === 2 && (
-          <div className="mt-4">
-            <h2 className="text-[26px] font-bold leading-tight">Where will you charge it?</h2>
+          <div className="mt-4 md:mt-8">
+            <h2 className="text-[26px] md:text-[32px] font-bold leading-tight">Where will you charge it?</h2>
             <p className="text-sm text-ink-secondary mt-1">Pick everything that applies to you.</p>
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 md:grid md:grid-cols-2 md:gap-4 space-y-3 md:space-y-0">
               {chargeOptions.map((opt) => (
                 <OptionCard
                   key={opt.value}
@@ -205,10 +214,10 @@ function QuizContent() {
         )}
 
         {step === 3 && (
-          <div className="mt-4">
-            <h2 className="text-[26px] font-bold leading-tight">What's your budget?</h2>
+          <div className="mt-4 md:mt-8">
+            <h2 className="text-[26px] md:text-[32px] font-bold leading-tight">What's your budget?</h2>
             <p className="text-sm text-ink-secondary mt-1">Drive-away price, all-in.</p>
-            <div className="mt-6 space-y-3">
+            <div className="mt-6 md:grid md:grid-cols-2 md:gap-4 space-y-3 md:space-y-0">
               {budgetOptions.map((opt) => (
                 <OptionCard
                   key={opt.value}
@@ -224,11 +233,12 @@ function QuizContent() {
         )}
       </div>
 
-      <div className="py-5">
+      {/* Bottom CTA */}
+      <div className="py-5 max-w-2xl mx-auto w-full">
         <Button
           onClick={handleNext}
           disabled={!canProceed}
-          className="w-full h-[54px] rounded-[20px] bg-green text-ink font-semibold text-[17px] hover:bg-green/90 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full md:w-auto md:min-w-[200px] h-[54px] rounded-[20px] bg-green text-ink font-semibold text-[17px] hover:bg-green/90 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {step < 3 ? "Next →" : "See my shortlist →"}
         </Button>
