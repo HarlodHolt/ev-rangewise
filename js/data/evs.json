@@ -1,0 +1,473 @@
+{
+  "meta": {
+    "lastUpdated": "2026-05-24",
+    "source": "Australian EV market data — compiled from manufacturer specs, real-world owner forums, and ANZCERT notes.",
+    "note": "Real-world range is estimated at 70-85% of WLTP depending on conditions. Highway/cold/towing will reduce further."
+  },
+  "vehicles": [
+    {
+      "id": "tesla-model-3-rwd",
+      "make": "Tesla",
+      "model": "Model 3",
+      "variant": "RWD",
+      "year": 2026,
+      "bodyType": "sedan",
+      "price": 54900,
+      "priceNote": "Before on-roads, drive-away varies by state",
+      "wlptRange": 513,
+      "realWorldRange": {
+        "city": 460,
+        "mixed": 410,
+        "highway": 360,
+        "towing": 250
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 250,
+        "batteryKwh": 60
+      },
+      "seats": 5,
+      "boot": 594,
+      "towCapacity": 750,
+      "groundClearance": 138,
+      "drive": "RWD",
+      "url": "https://www.tesla.com/en_au/model3"
+    },
+    {
+      "id": "tesla-model-y-rwd",
+      "make": "Tesla",
+      "model": "Model Y",
+      "variant": "RWD",
+      "year": 2026,
+      "bodyType": "suv",
+      "price": 59900,
+      "priceNote": "Before on-roads",
+      "wlptRange": 455,
+      "realWorldRange": {
+        "city": 410,
+        "mixed": 370,
+        "highway": 320,
+        "towing": 220
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 250,
+        "batteryKwh": 60
+      },
+      "seats": 5,
+      "boot": 854,
+      "towCapacity": 1600,
+      "groundClearance": 167,
+      "drive": "RWD",
+      "url": "https://www.tesla.com/en_au/modely"
+    },
+    {
+      "id": "mg4-excite-51",
+      "make": "MG",
+      "model": "MG4",
+      "variant": "Excite 51",
+      "year": 2026,
+      "bodyType": "hatch",
+      "price": 38990,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 350,
+      "realWorldRange": {
+        "city": 320,
+        "mixed": 280,
+        "highway": 240,
+        "towing": 160
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 7,
+        "maxDC": 117,
+        "batteryKwh": 51
+      },
+      "seats": 5,
+      "boot": 363,
+      "towCapacity": 500,
+      "groundClearance": 150,
+      "drive": "RWD",
+      "url": "https://mgmotor.com.au/models/mg4"
+    },
+    {
+      "id": "mg4-essence-64",
+      "make": "MG",
+      "model": "MG4",
+      "variant": "Essence 64",
+      "year": 2026,
+      "bodyType": "hatch",
+      "price": 43990,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 435,
+      "realWorldRange": {
+        "city": 390,
+        "mixed": 350,
+        "highway": 300,
+        "towing": 200
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 140,
+        "batteryKwh": 64
+      },
+      "seats": 5,
+      "boot": 363,
+      "towCapacity": 500,
+      "groundClearance": 150,
+      "drive": "RWD",
+      "url": "https://mgmotor.com.au/models/mg4"
+    },
+    {
+      "id": "byd-atto-3",
+      "make": "BYD",
+      "model": "Atto 3",
+      "variant": "Standard",
+      "year": 2026,
+      "bodyType": "suv",
+      "price": 44999,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 420,
+      "realWorldRange": {
+        "city": 380,
+        "mixed": 340,
+        "highway": 290,
+        "towing": 190
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 7,
+        "maxDC": 90,
+        "batteryKwh": 60.5
+      },
+      "seats": 5,
+      "boot": 440,
+      "towCapacity": 750,
+      "groundClearance": 175,
+      "drive": "FWD",
+      "url": "https://www.byd.com/au/atto-3"
+    },
+    {
+      "id": "byd-dolphin",
+      "make": "BYD",
+      "model": "Dolphin",
+      "variant": "Dynamic",
+      "year": 2026,
+      "bodyType": "hatch",
+      "price": 36990,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 340,
+      "realWorldRange": {
+        "city": 310,
+        "mixed": 270,
+        "highway": 230,
+        "towing": 150
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 7,
+        "maxDC": 60,
+        "batteryKwh": 44.9
+      },
+      "seats": 5,
+      "boot": 345,
+      "towCapacity": 0,
+      "groundClearance": 150,
+      "drive": "FWD",
+      "url": "https://www.byd.com/au/dolphin"
+    },
+    {
+      "id": "byd-seal",
+      "make": "BYD",
+      "model": "Seal",
+      "variant": "Dynamic",
+      "year": 2026,
+      "bodyType": "sedan",
+      "price": 49999,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 460,
+      "realWorldRange": {
+        "city": 420,
+        "mixed": 370,
+        "highway": 320,
+        "towing": 220
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 7,
+        "maxDC": 110,
+        "batteryKwh": 61.4
+      },
+      "seats": 5,
+      "boot": 400,
+      "towCapacity": 0,
+      "groundClearance": 135,
+      "drive": "RWD",
+      "url": "https://www.byd.com/au/seal"
+    },
+    {
+      "id": "hyundai-ioniq-6",
+      "make": "Hyundai",
+      "model": "Ioniq 6",
+      "variant": "Dynamiq RWD",
+      "year": 2026,
+      "bodyType": "sedan",
+      "price": 72200,
+      "priceNote": "Before on-roads",
+      "wlptRange": 519,
+      "realWorldRange": {
+        "city": 470,
+        "mixed": 420,
+        "highway": 360,
+        "towing": 260
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 350,
+        "batteryKwh": 77
+      },
+      "seats": 5,
+      "boot": 401,
+      "towCapacity": 1500,
+      "groundClearance": 139,
+      "drive": "RWD",
+      "url": "https://www.hyundai.com/au/en/models/ioniq6"
+    },
+    {
+      "id": "hyundai-kona-ev",
+      "make": "Hyundai",
+      "model": "Kona EV",
+      "variant": "Standard Range",
+      "year": 2026,
+      "bodyType": "suv",
+      "price": 54000,
+      "priceNote": "Approximate",
+      "wlptRange": 377,
+      "realWorldRange": {
+        "city": 340,
+        "mixed": 300,
+        "highway": 260,
+        "towing": 180
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 100,
+        "batteryKwh": 48.6
+      },
+      "seats": 5,
+      "boot": 407,
+      "towCapacity": 1100,
+      "groundClearance": 170,
+      "drive": "FWD",
+      "url": "https://www.hyundai.com/au/en/models/kona-electric"
+    },
+    {
+      "id": "kia-ev6",
+      "make": "Kia",
+      "model": "EV6",
+      "variant": "Air RWD",
+      "year": 2026,
+      "bodyType": "suv",
+      "price": 65790,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 528,
+      "realWorldRange": {
+        "city": 480,
+        "mixed": 430,
+        "highway": 370,
+        "towing": 270
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 350,
+        "batteryKwh": 77
+      },
+      "seats": 5,
+      "boot": 490,
+      "towCapacity": 1600,
+      "groundClearance": 155,
+      "drive": "RWD",
+      "url": "https://www.kia.com/au/models/ev6"
+    },
+    {
+      "id": "kia-ev9",
+      "make": "Kia",
+      "model": "EV9",
+      "variant": "Air RWD",
+      "year": 2026,
+      "bodyType": "suv",
+      "price": 89790,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 505,
+      "realWorldRange": {
+        "city": 460,
+        "mixed": 410,
+        "highway": 350,
+        "towing": 240
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 350,
+        "batteryKwh": 99.8
+      },
+      "seats": 7,
+      "boot": 333,
+      "towCapacity": 2500,
+      "groundClearance": 185,
+      "drive": "RWD",
+      "url": "https://www.kia.com/au/models/ev9"
+    },
+    {
+      "id": "volvo-ex30",
+      "make": "Volvo",
+      "model": "EX30",
+      "variant": "Single Motor",
+      "year": 2026,
+      "bodyType": "suv",
+      "price": 62990,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 344,
+      "realWorldRange": {
+        "city": 310,
+        "mixed": 280,
+        "highway": 240,
+        "towing": 170
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 134,
+        "batteryKwh": 51
+      },
+      "seats": 5,
+      "boot": 318,
+      "towCapacity": 1000,
+      "groundClearance": 168,
+      "drive": "RWD",
+      "url": "https://www.volvocars.com/au/cars/ex30"
+    },
+    {
+      "id": "polestar-2",
+      "make": "Polestar",
+      "model": "2",
+      "variant": "Long Range Single Motor",
+      "year": 2026,
+      "bodyType": "sedan",
+      "price": 67400,
+      "priceNote": "Before on-roads",
+      "wlptRange": 542,
+      "realWorldRange": {
+        "city": 490,
+        "mixed": 440,
+        "highway": 380,
+        "towing": 270
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 205,
+        "batteryKwh": 82
+      },
+      "seats": 5,
+      "boot": 405,
+      "towCapacity": 1500,
+      "groundClearance": 151,
+      "drive": "RWD",
+      "url": "https://www.polestar.com/au/polestar-2"
+    },
+    {
+      "id": "gwm-ora",
+      "make": "GWM",
+      "model": "Ora",
+      "variant": "Standard Range",
+      "year": 2026,
+      "bodyType": "hatch",
+      "price": 35990,
+      "priceNote": "Drive-away varies",
+      "wlptRange": 310,
+      "realWorldRange": {
+        "city": 280,
+        "mixed": 250,
+        "highway": 210,
+        "towing": 140
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 7,
+        "maxDC": 67,
+        "batteryKwh": 48
+      },
+      "seats": 5,
+      "boot": 228,
+      "towCapacity": 0,
+      "groundClearance": 140,
+      "drive": "FWD",
+      "url": "https://www.gwmora.com.au/"
+    },
+    {
+      "id": "nissan-leaf",
+      "make": "Nissan",
+      "model": "Leaf",
+      "variant": "e+",
+      "year": 2026,
+      "bodyType": "hatch",
+      "price": 50690,
+      "priceNote": "Drive-away",
+      "wlptRange": 385,
+      "realWorldRange": {
+        "city": 350,
+        "mixed": 310,
+        "highway": 260,
+        "towing": 180
+      },
+      "charging": {
+        "port": "CHAdeMO",
+        "maxAC": 7,
+        "maxDC": 70,
+        "batteryKwh": 62
+      },
+      "seats": 5,
+      "boot": 405,
+      "towCapacity": 0,
+      "groundClearance": 150,
+      "drive": "FWD",
+      "url": "https://www.nissan.com.au/leaf"
+    },
+    {
+      "id": "porsche-taycan",
+      "make": "Porsche",
+      "model": "Taycan",
+      "variant": "Base",
+      "year": 2026,
+      "bodyType": "sedan",
+      "price": 182000,
+      "priceNote": "Before on-roads",
+      "wlptRange": 503,
+      "realWorldRange": {
+        "city": 460,
+        "mixed": 410,
+        "highway": 360,
+        "towing": 250
+      },
+      "charging": {
+        "port": "CCS2",
+        "maxAC": 11,
+        "maxDC": 320,
+        "batteryKwh": 89
+      },
+      "seats": 4,
+      "boot": 407,
+      "towCapacity": 0,
+      "groundClearance": 128,
+      "drive": "RWD",
+      "url": "https://www.porsche.com/australia/models/taycan"
+    }
+  ]
+}
