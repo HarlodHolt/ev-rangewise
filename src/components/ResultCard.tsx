@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 import type { ScoredEV } from "@/lib/types";
 
 export default function ResultCard({
@@ -10,6 +11,7 @@ export default function ResultCard({
   ev: ScoredEV;
   rank: number;
 }) {
+  const router = useRouter();
   const matchLevel =
     ev.matchPercent >= 90 ? "high" : ev.matchPercent >= 80 ? "mid" : "low";
 
@@ -78,7 +80,10 @@ export default function ResultCard({
 
       {/* Buttons */}
       <div className="mt-4 flex gap-2">
-        <Button className="flex-[2] rounded-[20px] bg-green text-ink font-semibold hover:bg-green/90 h-11">
+        <Button
+          onClick={() => router.push(`/car/${ev.id}`)}
+          className="flex-[2] rounded-[20px] bg-green text-ink font-semibold hover:bg-green/90 h-11"
+        >
           Full details
         </Button>
         <Button
